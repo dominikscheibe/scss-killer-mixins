@@ -1,0 +1,202 @@
+$br-desktop: 1199px;
+$br-tablet: 1023px;
+$br-smartphone: 767px;
+$br-smartphone-small: 374px;
+
+@mixin responsive-spacing($space, $dft, $tablet, $smartphone) {
+    #{$space}: $dft;
+
+    @media only screen and (max-width: $br-tablet) {
+        #{$space}: $tablet;
+    }
+
+    @media only screen and (max-width: $br-smartphone) {
+        #{$space}: $smartphone;
+    }
+}
+
+@mixin responsive-spacing-desktop($space, $dft, $desktop, $tablet, $smartphone) {
+    #{$space}: $dft;
+
+    @media only screen and (max-width: $br-desktop) {
+        #{$space}: $desktop;
+    }
+
+    @media only screen and (max-width: $br-tablet) {
+        #{$space}: $tablet;
+    }
+
+    @media only screen and (max-width: $br-smartphone) {
+        #{$space}: $smartphone;
+    }
+}
+
+@mixin responsive-spacing-smartphone($space, $dft, $tablet, $smartphone, $iphone5) {
+    #{$space}: $dft;
+
+    @media only screen and (max-width: $br-tablet) {
+        #{$space}: $tablet;
+    }
+
+    @media only screen and (max-width: $br-smartphone) {
+        #{$space}: $smartphone;
+    }
+
+    @media only screen and (max-width: $br-smartphone-small) {
+        #{$space}: $iphone5;
+    }
+}
+
+
+@mixin responsive-spacing-desktop-smartphone($space, $dft, $desktop, $tablet, $smartphone, $iphone5) {
+    #{$space}: $dft;
+
+    @media only screen and (max-width: $br-desktop) {
+        #{$space}: $desktop;
+    }
+
+    @media only screen and (max-width: $br-tablet) {
+        #{$space}: $tablet;
+    }
+
+    @media only screen and (max-width: $br-smartphone) {
+        #{$space}: $smartphone;
+    }
+
+    @media only screen and (max-width: $br-smartphone-small) {
+        #{$space}: $iphone5;
+    }
+}
+
+@mixin position($position, $top: auto, $right: auto, $bottom: auto, $left: auto, $margin: 0) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    margin: $margin;
+}
+
+@mixin responsive-position($position, $styles...) {
+    position: $position;
+
+    @each $style in $styles {
+        $i: index(($styles), ($style));
+
+        @if $i==1 {
+            @include responsive-position-private($style);
+        } @else if $i==2 {
+            @media only screen and (max-width: $br-tablet) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==3 {
+            @media only screen and (max-width: $br-smartphone) {
+                @include responsive-position-private($style);
+            }
+        }
+    }
+}
+
+@mixin responsive-position-desktop($position, $styles...) {
+    position: $position;
+
+    @each $style in $styles {
+        $i: index(($styles), ($style));
+
+        @if $i==1 {
+            @include responsive-position-private($style);
+        } @else if $i==2 {
+            @media only screen and (max-width: $br-desktop) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==3 {
+            @media only screen and (max-width: $br-tablet) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==4 {
+            @media only screen and (max-width: $br-smartphone) {
+                @include responsive-position-private($style);
+            }
+        }
+    }
+}
+
+@mixin responsive-position-smartphone($position, $styles...) {
+    position: $position;
+
+    @each $style in $styles {
+        $i: index(($styles), ($style));
+
+        @if $i==1 {
+            @include responsive-position-private($style);
+        } @else if $i==2 {
+            @media only screen and (max-width: $br-tablet) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==3 {
+            @media only screen and (max-width: $br-smartphone) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==4 {
+            @media only screen and (max-width: $br-smartphone-small) {
+                @include responsive-position-private($style);
+            }
+        }
+    }
+}
+
+@mixin responsive-position-desktop-smartphone($position, $styles...) {
+    position: $position;
+
+    @each $style in $styles {
+        $i: index(($styles), ($style));
+
+        @if $i==1 {
+            @include responsive-position-private($style);
+        } @else if $i==2 {
+            @media only screen and (max-width: $br-desktop) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==3 {
+            @media only screen and (max-width: $br-tablet) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==4 {
+            @media only screen and (max-width: $br-smartphone) {
+                @include responsive-position-private($style);
+            }
+        } @else if $i==5 {
+            @media only screen and (max-width: $br-smartphone-small) {
+                @include responsive-position-private($style);
+            }
+        }
+    }
+}
+
+@mixin responsive-position-private($style) {
+    top: nth($style, 1);
+
+    @if length($style)>=2 {
+        right: nth($style, 2);
+    } @else {
+        right: auto;
+    }
+
+    @if length($style)>=3 {
+        bottom: nth($style, 3);
+    } @else {
+        bottom: auto;
+    }
+
+    @if length($style)>=4 {
+        left: nth($style, 4);
+    } @else {
+        left: auto;
+    }
+
+    @if length($style)>=5 {
+        margin: nth($style, 5);
+    } @else {
+        margin: 0;
+    }
+}

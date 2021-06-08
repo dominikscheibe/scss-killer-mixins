@@ -1,0 +1,16 @@
+{
+  "name": "killer-mixins",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "9.5.1",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "sass": "^1.23.1"
+  },
+  "author": "scheibe.dominik@gmail.com",
+  "license": "ISC"
+}
