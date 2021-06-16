@@ -3,68 +3,68 @@ $br-tablet: 1023px;
 $br-smartphone: 767px;
 $br-smartphone-small: 374px;
 
-@mixin responsive-spacing($space, $dft, $tablet, $smartphone) {
-    #{$space}: $dft;
+@mixin responsive-styling($style, $dft, $tablet, $smartphone) {
+    #{$style}: $dft;
 
     @media only screen and (max-width: $br-tablet) {
-        #{$space}: $tablet;
+        #{$style}: $tablet;
     }
 
     @media only screen and (max-width: $br-smartphone) {
-        #{$space}: $smartphone;
+        #{$style}: $smartphone;
     }
 }
 
-@mixin responsive-spacing-desktop($space, $dft, $desktop, $tablet, $smartphone) {
-    #{$space}: $dft;
+@mixin responsive-styling-desktop($style, $dft, $desktop, $tablet, $smartphone) {
+    #{$style}: $dft;
 
     @media only screen and (max-width: $br-desktop) {
-        #{$space}: $desktop;
+        #{$style}: $desktop;
     }
 
     @media only screen and (max-width: $br-tablet) {
-        #{$space}: $tablet;
+        #{$style}: $tablet;
     }
 
     @media only screen and (max-width: $br-smartphone) {
-        #{$space}: $smartphone;
+        #{$style}: $smartphone;
     }
 }
 
-@mixin responsive-spacing-smartphone($space, $dft, $tablet, $smartphone, $iphone5) {
-    #{$space}: $dft;
+@mixin responsive-styling-smartphone($style, $dft, $tablet, $smartphone, $iphone5) {
+    #{$style}: $dft;
 
     @media only screen and (max-width: $br-tablet) {
-        #{$space}: $tablet;
+        #{$style}: $tablet;
     }
 
     @media only screen and (max-width: $br-smartphone) {
-        #{$space}: $smartphone;
+        #{$style}: $smartphone;
     }
 
     @media only screen and (max-width: $br-smartphone-small) {
-        #{$space}: $iphone5;
+        #{$style}: $iphone5;
     }
 }
 
 
-@mixin responsive-spacing-desktop-smartphone($space, $dft, $desktop, $tablet, $smartphone, $iphone5) {
-    #{$space}: $dft;
+@mixin responsive-styling-desktop-smartphone($style, $dft, $desktop, $tablet, $smartphone, $iphone5) {
+    #{$style}: $dft;
 
     @media only screen and (max-width: $br-desktop) {
-        #{$space}: $desktop;
+        #{$style}: $desktop;
     }
 
     @media only screen and (max-width: $br-tablet) {
-        #{$space}: $tablet;
+        #{$style}: $tablet;
     }
 
     @media only screen and (max-width: $br-smartphone) {
-        #{$space}: $smartphone;
+        #{$style}: $smartphone;
     }
 
     @media only screen and (max-width: $br-smartphone-small) {
-        #{$space}: $iphone5;
+        #{$style}: $iphone5;
     }
 }
 
